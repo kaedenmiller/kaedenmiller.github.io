@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaeden Miller | Business Student Portfolio</title>
+<style>
+  :root {
+    --navy: #0b2545;
+    --navy-light: #13315c;
+    --accent: #c8102e;
+    --bg: #f7f8fa;
+    --card-bg: #ffffff;
+    --text: #1c1c1c;
+    --muted: #5a6472;
+    --border: #e3e6ea;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+
+  header {
+    background: var(--navy);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  nav {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  nav .brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    color: #dce4f0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: #fff; }
+
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 1.5rem 3.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero p.title {
+    font-size: 1.15rem;
+    color: #cfd9ea;
+    margin-bottom: 0.2rem;
+  }
+
+  .hero p.school {
+    font-size: 0.95rem;
+    color: #a9b8d0;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-size: 1.5rem;
+    color: var(--navy);
+    margin-bottom: 1.2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 45px;
+    height: 3px;
+    background: var(--accent);
+  }
+
+  .about p {
+    max-width: 700px;
+    color: var(--muted);
+    font-size: 1.02rem;
+  }
+
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .skill-pill {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--navy);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.3rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  }
+
+  .project-card h3 {
+    font-size: 1.05rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-card p {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .project-card .status {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .resume-box {
+    background: var(--card-bg);
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--muted);
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 0.8rem;
+    background: var(--navy);
+    color: #fff;
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .btn:hover { background: var(--navy-light); }
+
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .contact-list a {
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .contact-list a:hover { text-decoration: underline; }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 600px) {
+    nav { flex-direction: column; gap: 0.6rem; }
+    .hero h1 { font-size: 1.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">Kaeden Miller</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Kaeden Miller</h1>
+  <p class="title">Business Student</p>
+  <p class="school">University of Utah</p>
+</div>
+
+<main>
+
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a Business student at the University of Utah interested in working internationally
+      and gaining exposure to how business operates across different markets and cultures.
+      I'm building foundational skills in tools like Excel and Canva while developing a growing
+      interest in how AI can support faster, smarter business decision-making. Through this
+      course, I'm working on strengthening my technical toolkit &mdash; including Git, GitHub,
+      and AI-assisted workflows &mdash; while continuing to explore how data, design, and
+      technology intersect with practical business problems. This portfolio will grow throughout
+      the semester as I complete projects connecting business strategy with real technical skills.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <span class="skill-pill">Microsoft Excel</span>
+      <span class="skill-pill">Canva</span>
+      <span class="skill-pill">Git</span>
+      <span class="skill-pill">GitHub</span>
+      <span class="skill-pill">AI-Assisted Workflows</span>
+      <span class="skill-pill">Business Analysis</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>AI Business Analysis</h3>
+        <p>Analyzing business data and problems using AI tools to support decision-making.</p>
+        <span class="status">Coming Soon</span>
+      </div>
+      <div class="project-card">
+        <h3>Data Visualization</h3>
+        <p>Interactive dashboard built with Tableau to explore and present business data.</p>
+        <span class="status">Coming Soon</span>
+      </div>
+      <div class="project-card">
+        <h3>Web Development</h3>
+        <p>Responsive website project applying core web design and development principles.</p>
+        <span class="status">Coming Soon</span>
+      </div>
+      <div class="project-card">
+        <h3>KPMG Group Project</h3>
+        <p>Semester-long consulting project applying business strategy and technology skills to a real-world case.</p>
+        <span class="status">In Progress</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <div class="resume-box">
+      <p>Resume coming soon.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <ul class="contact-list">
+      <li>Email: <a href="mailto:your.email@utah.edu">your.email@utah.edu</a></li>
+      <li>GitHub: <a href="https://github.com/kaedendmiller" target="_blank" rel="noopener">github.com/kaedendmiller</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 Kaeden Miller &mdash; Built for IS 3060
+</footer>
+
+</body>
+</html>
